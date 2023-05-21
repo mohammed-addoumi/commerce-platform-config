@@ -21,3 +21,18 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+      
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: users micorservices for the commerce platform
+    version: 0.0.1-SNAPSHOT
