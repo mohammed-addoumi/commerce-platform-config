@@ -5,7 +5,13 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-
+      routes:
+        - id: users-routes
+          uri: lb://users
+          predicates:
+            - Path=/commerce/users/**
+          filters:
+            - RewritePath=/commerce/users/(?<segment>.*), /${segment}
 eureka:
   instance:
     prefer-ip-address: true
